@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="fop-core-2.9">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/library/fop-core-2.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/fop-events-2.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/fop-util-2.9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

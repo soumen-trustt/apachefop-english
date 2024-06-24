@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inherit-compiler-output="true" inheritJdk="true">
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<lib name="fop-core-2.9" scope="PROVIDED"/>
+	<lib name="fop-events-2.9.jar" scope="PROVIDED">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/library/fop-events-2.9.jar!/"/>
+	</lib>
+	<lib name="fop-util-2.9.jar" scope="PROVIDED">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/library/fop-util-2.9.jar!/"/>
+	</lib>
+	<lib name="fop-2.9" scope="PROVIDED"/>
+	<levels>
+		<level name="fop-core-2.9" value="project"/>
+		<level name="fop-2.9" value="project"/>
+	</levels>
+</component>
