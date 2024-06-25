@@ -68,6 +68,11 @@
     <ProcessingFeeAndStampDuty>
         <TotalProcessingFee></TotalProcessingFee>
         <StampDuty></StampDuty>
+        <ContingentCharges>
+            <RepaymentOfLoan></RepaymentOfLoan>
+            <PenalCharges></PenalCharges>
+            <OtherCharges></OtherCharges>
+        </ContingentCharges>
     </ProcessingFeeAndStampDuty>
     <InsuranceDetails>
         <NameOfInsured></NameOfInsured>
