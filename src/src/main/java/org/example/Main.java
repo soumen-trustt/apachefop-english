@@ -21,11 +21,11 @@ public class Main {
 
                 // Step 4: Setup JAXP using XSLT transformer
                 TransformerFactory factory = TransformerFactory.newInstance();
-                Source xslt = new StreamSource(new File("/home/soumenmanna/Desktop/apachefop/src/src/main/resources/stylesheet.xsl"));
+                Source xslt = new StreamSource(new File("src/src/main/resources/stylesheet.xsl"));
                 Transformer transformer = factory.newTransformer(xslt);
 
                 // Step 5: Setup input and output for XSLT transformation
-                Source src = new StreamSource(new File("/home/soumenmanna/Desktop/apachefop/src/src/main/resources/input.xml"));
+                Source src = new StreamSource(new File("src/src/main/resources/input.xml"));
 
                 // Resulting SAX events (the generated FO) must be piped through to FOP
                 Result res = new SAXResult(fop.getDefaultHandler());
