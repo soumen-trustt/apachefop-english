@@ -9,8 +9,10 @@
         <CIN></CIN>
         <PAN></PAN>
     </BranchDetails>
+    <CustomerPhoto>
+        <Photo></Photo>
+    </CustomerPhoto>
     <CustomerDetails>
-        <CustomerPhoto></CustomerPhoto>
         <CustomerName></CustomerName>
         <CustomerID></CustomerID>
         <LoanAccountNo></LoanAccountNo>
@@ -18,12 +20,6 @@
         <Product></Product>
         <HusbandName></HusbandName>
         <CustomerAddress></CustomerAddress>
-        <MobileNo></MobileNo>
-        <FatherName></FatherName>
-        <CoApplicantName></CoApplicantName>
-        <CentrePlace></CentrePlace>
-    </CustomerDetails>
-    <LoanDetails>
         <DisbursedDate></DisbursedDate>
         <LoanAmount></LoanAmount>
         <TotalInterestCharge></TotalInterestCharge>
@@ -35,8 +31,11 @@
         <TotalAmountToBePaid></TotalAmountToBePaid>
         <AnnualizedInterestRate></AnnualizedInterestRate>
         <RateOfInterest></RateOfInterest>
-    </LoanDetails>
-    <RepaymentDetails>
+        <MobileNo></MobileNo>
+        <FatherName></FatherName>
+        <CoApplicantName></CoApplicantName>
+        <CentrePlace></CentrePlace>
+
         <LoanTerm></LoanTerm>
         <RepaymentFrequency></RepaymentFrequency>
         <NumberOfInstallments></NumberOfInstallments>
@@ -49,7 +48,7 @@
         <BeneficiaryAccountName></BeneficiaryAccountName>
         <BankName></BankName>
         <NetoffAccountAmount></NetoffAccountAmount>
-    </RepaymentDetails>
+    </CustomerDetails>
     <Installments>
         <Installment>
             <InstNo></InstNo>
@@ -68,6 +67,11 @@
     <ProcessingFeeAndStampDuty>
         <TotalProcessingFee></TotalProcessingFee>
         <StampDuty></StampDuty>
+        <ContingentCharges></ContingentCharges>
+        <RepaymentOfLoan></RepaymentOfLoan>
+        <PenalCharges></PenalCharges>
+        <OtherCharges></OtherCharges>
+
     </ProcessingFeeAndStampDuty>
     <InsuranceDetails>
         <NameOfInsured></NameOfInsured>
