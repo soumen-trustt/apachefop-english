@@ -153,38 +153,38 @@
                     <fo:table width="100%" border="1pt solid black">
                         <fo:table-header>
                             <fo:table-row>
-                                <fo:table-cell border="1pt solid black" padding="4pt">
-                                    <fo:block>Inst No.</fo:block>
+                                <fo:table-cell border="1pt solid black" padding="2pt">
+                                    <fo:block font-size="7">Inst No.</fo:block>
                                 </fo:table-cell>
-                                <fo:table-cell border="1pt solid black" padding="4pt">
-                                    <fo:block>Repayment Date</fo:block>
+                                <fo:table-cell border="1pt solid black" padding="2pt">
+                                    <fo:block font-size="7">Repayment Date</fo:block>
                                 </fo:table-cell>
-                                <fo:table-cell border="1pt solid black" padding="4pt">
-                                    <fo:block>Outstanding Principal</fo:block>
+                                <fo:table-cell border="1pt solid black" padding="2pt">
+                                    <fo:block font-size="7">Outstanding Principal</fo:block>
                                 </fo:table-cell>
-                                <fo:table-cell border="1pt solid black" padding="4pt">
-                                    <fo:block>Principal</fo:block>
+                                <fo:table-cell border="1pt solid black" padding="2pt">
+                                    <fo:block font-size="7">Principal</fo:block>
                                 </fo:table-cell>
-                                <fo:table-cell border="1pt solid black" padding="4pt">
-                                    <fo:block>Interest</fo:block>
+                                <fo:table-cell border="1pt solid black" padding="2pt">
+                                    <fo:block font-size="7">Interest</fo:block>
                                 </fo:table-cell>
-                                <fo:table-cell border="1pt solid black" padding="4pt">
-                                    <fo:block>Inst Amount</fo:block>
+                                <fo:table-cell border="1pt solid black" padding="2pt">
+                                    <fo:block font-size="7">Inst Amount</fo:block>
                                 </fo:table-cell>
-                                <fo:table-cell border="1pt solid black" padding="4pt">
-                                    <fo:block>Paid Status</fo:block>
+                                <fo:table-cell border="1pt solid black" padding="2pt">
+                                    <fo:block font-size="7">Paid Status</fo:block>
                                 </fo:table-cell>
-                                <fo:table-cell border="1pt solid black" padding="4pt">
-                                    <fo:block>Amount Collected</fo:block>
+                                <fo:table-cell border="1pt solid black" padding="2pt">
+                                    <fo:block font-size="7">Amount Collected</fo:block>
                                 </fo:table-cell>
-                                <fo:table-cell border="1pt solid black" padding="4pt">
-                                    <fo:block>Amount Collected On</fo:block>
+                                <fo:table-cell border="1pt solid black" padding="2pt">
+                                    <fo:block font-size="7">Amount Collected On</fo:block>
                                 </fo:table-cell>
-                                <fo:table-cell border="1pt solid black" padding="4pt">
-                                    <fo:block>Emp Code</fo:block>
+                                <fo:table-cell border="1pt solid black" padding="2pt">
+                                    <fo:block font-size="7">Emp Code</fo:block>
                                 </fo:table-cell>
-                                <fo:table-cell border="1pt solid black" padding="4pt">
-                                    <fo:block>Emp Signature</fo:block>
+                                <fo:table-cell border="1pt solid black" padding="2pt">
+                                    <fo:block font-size="7">Emp Signature</fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
                         </fo:table-header>
@@ -229,6 +229,7 @@
                             </xsl:for-each>
                         </fo:table-body>
                     </fo:table>
+
 
                     <!-- Processing Fee and Stamp Duty -->
                     <fo:block font-family="Arial" font-size="12pt" font-weight="bold" margin-top="1cm" margin-bottom="0.5cm">
@@ -342,14 +343,27 @@
         </fo:table-row>
     </xsl:template>
 
+    <!--    GrievanceRedressal-->
     <xsl:template match="GrievanceRedressal/*">
         <fo:table-row>
             <fo:table-cell border="1pt solid black" padding="4pt">
-                <fo:block><xsl:value-of select="name()"/></fo:block>
+                <fo:block>
+                    <xsl:choose>
+                        <xsl:when test="name() = 'NodalOfficerName'">
+                            <xsl:text>Nodal officer Name</xsl:text>
+                        </xsl:when>
+                        <xsl:when test="name() = 'NodalOfficerContactNo'">
+                            <xsl:text>Nodal officer contact no</xsl:text>
+                        </xsl:when>
+                    </xsl:choose>
+                </fo:block>
             </fo:table-cell>
             <fo:table-cell border="1pt solid black" padding="4pt">
                 <fo:block><xsl:value-of select="."/></fo:block>
             </fo:table-cell>
         </fo:table-row>
     </xsl:template>
+
+
+
 </xsl:stylesheet>
