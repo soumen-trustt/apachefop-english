@@ -3,7 +3,7 @@
     <xsl:template match="/">
         <fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
             <fo:layout-master-set>
-                <fo:simple-page-master master-name="simple" page-height="29.7cm" page-width="21cm" margin-top="2cm" margin-bottom="1cm" margin-left="2cm" margin-right="2cm">
+                <fo:simple-page-master master-name="simple" page-height="30cm" page-width="21cm" margin-top="2cm" margin-bottom="1cm" margin-left="2cm" margin-right="2cm">
                     <fo:region-body/>
                     <fo:region-before extent="2cm"/>
                     <fo:region-after extent="2cm"/>
@@ -18,7 +18,7 @@
                         </fo:block>
                     </fo:block-container>
                     <!--customer photo adding section-->
-                    <fo:block-container absolute-position="absolute" top="1.7cm" right="0cm" height="55%" width="75%">
+                    <fo:block-container absolute-position="absolute" top="1.7cm" right="1cm" height="80%" width="65%">
                         <fo:block>
                             <fo:table>
                                 <fo:table-body>
@@ -41,7 +41,7 @@
                     <!-- Branch Details -->
                     <fo:block font-family="Arial" font-size="12pt" font-weight="bold" margin-top="1cm" margin-bottom="0.5cm">
                     </fo:block>
-                    <fo:table width="70%" border="1pt solid black">
+                    <fo:table width="75%" border="1pt solid black">
                         <fo:table-body>
                             <fo:table-row >
                                 <fo:table-cell padding="1pt">
@@ -91,7 +91,7 @@
                                         <xsl:value-of select="LoanCardFactSheet/BranchDetails/GSTRegn"/>
                                     </fo:block>
                                 </fo:table-cell>
-                                <fo:table-cell padding="1pt">
+                                <fo:table-cell padding="2pt" >
                                     <fo:block font-family="Arial" font-size="10pt">
                                         CIN:
                                     </fo:block>
@@ -903,14 +903,15 @@
 
     <xsl:template match="BranchDetails/*">
         <fo:table-row>
-            <fo:table-cell border="1pt solid black" padding="4pt">
-                <fo:block><xsl:value-of select="name()"/></fo:block>
+            <fo:table-cell border="1pt solid black" padding="4pt" width="{string-length(name()) * 10}pt">
+                <fo:block font-size="10pt"><xsl:value-of select="name()"/></fo:block>
             </fo:table-cell>
-            <fo:table-cell border="1pt solid black" padding="4pt">
-                <fo:block><xsl:value-of select="."/></fo:block>
+            <fo:table-cell border="1pt solid black" padding="4pt" width="{string-length(.) * 10}pt">
+                <fo:block font-size="10pt" wrap-option="wrap"><xsl:value-of select="."/></fo:block>
             </fo:table-cell>
         </fo:table-row>
     </xsl:template>
+
 
     <xsl:template match="CustomerDetails/*">
         <fo:table-row>
