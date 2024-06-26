@@ -1,87 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LoanCardFactSheet>
     <BranchDetails>
-        <BranchCode></BranchCode>
-        <BranchName></BranchName>
-        <BranchAddress></BranchAddress>
-        <RegisteredOffice></RegisteredOffice>
-        <GSTRegn></GSTRegn>
-        <CIN></CIN>
-        <PAN></PAN>
+        <BranchCode>001</BranchCode>
+        <BranchName>Main Branch</BranchName>
+        <BranchAddress>123 Main Street, City, State, ZIP</BranchAddress>
+        <RegisteredOffice>123 Registered Office Address</RegisteredOffice>
+        <GSTRegn>29ABCDE1234FZ1</GSTRegn>
+        <CIN>L12345KA2020PLC123456</CIN>
+        <PAN>ABCDE1234F</PAN>
     </BranchDetails>
     <CustomerPhoto>
-        <Photo></Photo>
+        <Photo>customer_photo.jpg</Photo>
     </CustomerPhoto>
     <CustomerDetails>
-        <CustomerName></CustomerName>
-        <CustomerID></CustomerID>
-        <LoanAccountNo></LoanAccountNo>
-        <GroupName></GroupName>
-        <Product></Product>
-        <HusbandName></HusbandName>
-        <CustomerAddress></CustomerAddress>
-        <DisbursedDate></DisbursedDate>
-        <LoanAmount></LoanAmount>
-        <TotalInterestCharge></TotalInterestCharge>
-        <OtherUpfrontCharges></OtherUpfrontCharges>
-        <ProcessingFees></ProcessingFees>
-        <InsuranceAmount></InsuranceAmount>
-        <OtherCharges></OtherCharges>
-        <NetDisbursedAmount></NetDisbursedAmount>
-        <TotalAmountToBePaid></TotalAmountToBePaid>
-        <AnnualizedInterestRate></AnnualizedInterestRate>
-        <RateOfInterest></RateOfInterest>
-        <MobileNo></MobileNo>
-        <FatherName></FatherName>
-        <CoApplicantName></CoApplicantName>
-        <CentrePlace></CentrePlace>
-
-        <LoanTerm></LoanTerm>
-        <RepaymentFrequency></RepaymentFrequency>
-        <NumberOfInstallments></NumberOfInstallments>
-        <RepaymentDate></RepaymentDate>
-        <RepaymentAmount></RepaymentAmount>
-        <LendingType></LendingType>
-        <LoanCycle></LoanCycle>
-        <BankAccountNo></BankAccountNo>
-        <Purpose></Purpose>
-        <BeneficiaryAccountName></BeneficiaryAccountName>
-        <BankName></BankName>
-        <NetoffAccountAmount></NetoffAccountAmount>
+        <CustomerName>John Doe</CustomerName>
+        <CustomerID>C123456789</CustomerID>
+        <LoanAccountNo>LN1234567890</LoanAccountNo>
+        <GroupName>ABC Group</GroupName>
+        <Product>Personal Loan</Product>
+        <HusbandName>Michael Doe</HusbandName>
+        <CustomerAddress>456 Elm Street, City, State, ZIP</CustomerAddress>
+        <DisbursedDate>2024-01-01</DisbursedDate>
+        <LoanAmount>50000</LoanAmount>
+        <TotalInterestCharge>5000</TotalInterestCharge>
+        <OtherUpfrontCharges>1000</OtherUpfrontCharges>
+        <ProcessingFees>500</ProcessingFees>
+        <InsuranceAmount>2000</InsuranceAmount>
+        <OtherCharges>300</OtherCharges>
+        <NetDisbursedAmount>46200</NetDisbursedAmount>
+        <TotalAmountToBePaid>55000</TotalAmountToBePaid>
+        <AnnualizedInterestRate>12%</AnnualizedInterestRate>
+        <RateOfInterest>1% per month</RateOfInterest>
+        <MobileNo>1234567890</MobileNo>
+        <FatherName>David Doe</FatherName>
+        <CoApplicantName>Jane Doe</CoApplicantName>
+        <CentrePlace>Community Center</CentrePlace>
+        <LoanTerm>24 months</LoanTerm>
+        <RepaymentFrequency>Monthly</RepaymentFrequency>
+        <NumberOfInstallments>24</NumberOfInstallments>
+        <RepaymentDate>2024-02-01</RepaymentDate>
+        <RepaymentAmount>2292</RepaymentAmount>
+        <LendingType>Term Loan</LendingType>
+        <LoanCycle>1</LoanCycle>
+        <BankAccountNo>1234567890123456</BankAccountNo>
+        <Purpose>Home Renovation</Purpose>
+        <BeneficiaryAccountName>John Doe</BeneficiaryAccountName>
+        <BankName>ABC Bank</BankName>
+        <NetoffAccountAmount>5000</NetoffAccountAmount>
     </CustomerDetails>
     <Installments>
         <Installment>
-            <InstNo></InstNo>
-            <RepaymentDate></RepaymentDate>
-            <OutstandingPrincipal></OutstandingPrincipal>
-            <Principal></Principal>
-            <Interest></Interest>
-            <InstAmount></InstAmount>
-            <PaidStatus></PaidStatus>
-            <AmountCollected></AmountCollected>
-            <AmountCollectedOn></AmountCollectedOn>
-            <EmpCode></EmpCode>
-            <EmpSignature></EmpSignature>
+            <InstNo>1</InstNo>
+            <RepaymentDate>2024-02-01</RepaymentDate>
+            <OutstandingPrincipal>50000</OutstandingPrincipal>
+            <Principal>2000</Principal>
+            <Interest>292</Interest>
+            <InstAmount>2292</InstAmount>
+            <PaidStatus>Paid</PaidStatus>
+            <AmountCollected>2292</AmountCollected>
+            <AmountCollectedOn>2024-02-01</AmountCollectedOn>
+            <EmpCode>E001</EmpCode>
+            <EmpSignature>emp_signature.jpg</EmpSignature>
         </Installment>
     </Installments>
     <ProcessingFeeAndStampDuty>
-        <TotalProcessingFee></TotalProcessingFee>
-        <StampDuty></StampDuty>
-        <ContingentCharges></ContingentCharges>
-        <RepaymentOfLoan></RepaymentOfLoan>
-        <PenalCharges></PenalCharges>
-        <OtherCharges></OtherCharges>
-
+        <TotalProcessingFee>500</TotalProcessingFee>
+        <StampDuty>50</StampDuty>
+        <ContingentCharges>20</ContingentCharges>
+        <RepaymentOfLoan>0</RepaymentOfLoan>
+        <PenalCharges>10</PenalCharges>
+        <OtherCharges>30</OtherCharges>
     </ProcessingFeeAndStampDuty>
     <InsuranceDetails>
-        <NameOfInsured></NameOfInsured>
-        <NameOfNominee></NameOfNominee>
-        <RelationshipWithBorrower></RelationshipWithBorrower>
-        <AgeOfInsured></AgeOfInsured>
-        <SumAssured></SumAssured>
-        <InsurancePremium></InsurancePremium>
-        <InsuranceStartDate></InsuranceStartDate>
-        <InsuranceEndDate></InsuranceEndDate>
+        <NameOfInsured>John Doe</NameOfInsured>
+        <NameOfNominee>Jane Doe</NameOfNominee>
+        <RelationshipWithBorrower>Spouse</RelationshipWithBorrower>
+        <AgeOfInsured>35</AgeOfInsured>
+        <SumAssured>100000</SumAssured>
+        <InsurancePremium>5000</InsurancePremium>
+        <InsuranceStartDate>2024-01-01</InsuranceStartDate>
+        <InsuranceEndDate>2025-01-01</InsuranceEndDate>
     </InsuranceDetails>
     <KeyTermsAndConditions>
         <Condition>Conducting regular group meeting</Condition>
@@ -96,7 +94,7 @@
         <Condition>Bank is responsible for the conduct of the employees</Condition>
     </KeyTermsAndConditions>
     <GrievanceRedressal>
-        <NodalOfficerName></NodalOfficerName>
-        <NodalOfficerContactNo></NodalOfficerContactNo>
+        <NodalOfficerName>Emily Smith</NodalOfficerName>
+        <NodalOfficerContactNo>0987654321</NodalOfficerContactNo>
     </GrievanceRedressal>
 </LoanCardFactSheet>
