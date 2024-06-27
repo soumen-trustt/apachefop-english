@@ -752,12 +752,12 @@
                             </xsl:for-each>
                             <xsl:for-each select="LoanCardFactSheet/Installments/*">
                                 <fo:table-row>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstNo"/></fo:block>
+                                    <!-- Combined first two columns into one with "Total" -->
+                                    <fo:table-cell border="1pt solid black" padding="15pt" number-columns-spanned="2">
+                                        <fo:block text-align="center" font-size="6pt">Total</fo:block>
                                     </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="RepaymentDate"/></fo:block>
-                                    </fo:table-cell>
+
+                                    <!-- Remaining columns -->
                                     <fo:table-cell border="1pt solid black" padding="15pt">
                                         <fo:block text-align="center" font-size="6pt"><xsl:value-of select="OutstandingPrincipal"/></fo:block>
                                     </fo:table-cell>
@@ -783,10 +783,11 @@
                                         <fo:block text-align="center" font-size="6pt"><xsl:value-of select="EmpCode"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block  text-align="center" font-size="6pt"><xsl:value-of select="EmpSignature"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="EmpSignature"/></fo:block>
                                     </fo:table-cell>
                                 </fo:table-row>
                             </xsl:for-each>
+
 
                         </fo:table-body>
                     </fo:table>
