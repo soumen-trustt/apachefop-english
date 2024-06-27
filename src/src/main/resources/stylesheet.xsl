@@ -43,7 +43,7 @@
                     </fo:block>
 
                     <!-- Branch Details -->
-                    <fo:block font-family="Times New Roman" font-size="12pt" font-weight="bold" margin-top="1cm" margin-bottom="0.5cm">
+                    <fo:block font-family="Times New Roman" font-size="10pt" font-weight="bold" margin-top="1cm" margin-bottom="0.5cm">
                     </fo:block>
                     <fo:table width="70%" border="1pt solid black">
                         <fo:table-body>
@@ -799,19 +799,19 @@
                         <fo:table-header>
                             <fo:table-row border="1pt solid black">
                                 <fo:table-cell border="1pt solid black">
-                                    <fo:block font-family="Times New Roman" font-size="12pt" font-weight="bold" text-align="center">
+                                    <fo:block font-family="Times New Roman" font-size="10pt" font-weight="bold" text-align="center">
                                         Processing Fee &amp; Stamp Duty Charges
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell border="1pt solid black">
-                                    <fo:block font-family="Times New Roman" font-size="12pt" font-weight="bold" text-align="center">
+                                    <fo:block font-family="Times New Roman" font-size="10pt" font-weight="bold" text-align="center">
                                         Insurance Details
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
                         </fo:table-header>
                         <fo:table-body>
-                            <fo:table-row height="50mm">
+                            <fo:table-row height="50mm" margin-left="10pt">
                                 <fo:table-cell border="1pt solid black">
                                     <xsl:apply-templates select="LoanCardFactSheet/ProcessingFeeAndStampDuty/*"/>
                                 </fo:table-cell>
@@ -824,7 +824,7 @@
 
 
                     <!-- Key Terms and Conditions -->
-                    <fo:block font-family="Times New Roman" font-size="12pt" font-weight="bold" margin-top="1cm" margin-bottom="0.5cm">
+                    <fo:block font-family="Times New Roman" font-size="10pt" font-weight="bold" margin-top="1cm" margin-bottom="0.5cm">
                         Key Terms and Conditions
                     </fo:block>
                     <fo:block font-family="Times New Roman" font-size="10pt">
@@ -836,7 +836,7 @@
                     </fo:block>
 
                     <!-- Grievance Redressal -->
-                    <fo:block font-family="Times New Roman" font-size="12pt" font-weight="bold" margin-top="1cm" margin-bottom="0.5cm">
+                    <fo:block font-family="Times New Roman" font-size="10pt" font-weight="bold" margin-top="1cm" margin-bottom="0.5cm">
                         Grievance Redressal
                     </fo:block>
                     <fo:block font-size="10pt">
@@ -846,10 +846,10 @@
                         <fo:table-header>
                             <fo:table-row>
                                 <fo:table-cell border="1pt solid black">
-                                    <fo:block font-size="12pt">Nodal Officer Name</fo:block>
+                                    <fo:block font-size="10pt">Nodal Officer Name</fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell border="1pt solid black">
-                                    <fo:block font-size="12pt">Nodal Officer Contact No</fo:block>
+                                    <fo:block font-size="10pt">Nodal Officer Contact No</fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
                         </fo:table-header>
@@ -894,7 +894,7 @@
 
 
     <xsl:template match="ProcessingFeeAndStampDuty/*">
-        <fo:block font-size="8pt" padding="4pt">
+        <fo:block font-size="10pt" padding="4pt">
             <xsl:choose>
                 <xsl:when test="name() = 'ContingentCharges'">
                     <fo:block font-weight="bold">
@@ -909,7 +909,7 @@
     </xsl:template>
 
     <xsl:template match="InsuranceDetails/*">
-        <fo:block font-size="8pt" padding="4pt">
+        <fo:block font-size="10pt" padding="4pt">
             <xsl:value-of select="name()"/>: <xsl:value-of select="."/>
         </fo:block>
     </xsl:template>
