@@ -3,7 +3,7 @@
     <xsl:template match="/">
         <fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
             <fo:layout-master-set>
-                <fo:simple-page-master master-name="simple" page-height="30cm" page-width="21cm" margin-top="2cm" margin-bottom="1cm" margin-left="2cm" margin-right="2cm">
+                <fo:simple-page-master master-name="simple" page-height="29.7cm" page-width="21cm" margin-top="2cm" margin-bottom="1cm" margin-left="2cm" margin-right="2cm">
                     <fo:region-body/>
                     <fo:region-before extent="2cm"/>
                     <fo:region-after extent="2cm"/>
@@ -14,16 +14,16 @@
                     <!--hdfc logo added-->
                     <fo:block-container absolute-position="absolute" top="-1cm" left="0cm">
                         <fo:block>
-                            <fo:external-graphic src="url('/home/soumenmanna/Desktop/apachefop/src/src/main/resources/HDFC-Bank-Logo.png')" content-width="100px" content-height="100px" scaling="uniform"/>
+                            <fo:external-graphic src="url('src/src/main/resources/HDFC-Bank-Logo.png')" content-width="100px" content-height="100px" scaling="uniform"/>
                         </fo:block>
                     </fo:block-container>
                     <!--customer photo adding section-->
-                    <fo:block-container absolute-position="absolute" top="1.7cm" right="1cm" height="80%" width="65%">
+                    <fo:block-container absolute-position="absolute" top="1.9cm" right="0cm" height="60%" width="70%" margin-left="-29pt">
                         <fo:block>
                             <fo:table>
                                 <fo:table-body>
                                     <fo:table-row>
-                                        <fo:table-cell display-align="right" width="30%"  padding-left="90%" padding-top="20%">
+                                        <fo:table-cell display-align="right" width="40%"  padding-left="90%" padding-top="20%">
                                             <fo:block text-align="center" border="1pt solid black" padding="20%">
                                                 <fo:inline>Customer Photo</fo:inline>
                                             </fo:block>
@@ -34,23 +34,23 @@
                         </fo:block>
                     </fo:block-container>
                     <!--Header of the pdf-->
-                    <fo:block text-align="center" font-family="Arial" font-size="10pt" font-weight="bold" margin-bottom="1cm" margin-top="-0.8cm">
+                    <fo:block text-align="center" font-family="Times New Roman" font-size="10pt" font-weight="bold" margin-bottom="1cm" margin-top="-0.8cm">
                         JLG/SHG/IL – LOAN CARD CUM FACT SHEET
                     </fo:block>
 
                     <!-- Branch Details -->
-                    <fo:block font-family="Arial" font-size="12pt" font-weight="bold" margin-top="1cm" margin-bottom="0.5cm">
+                    <fo:block font-family="Times New Roman" font-size="12pt" font-weight="bold" margin-top="1cm" margin-bottom="0.5cm">
                     </fo:block>
-                    <fo:table width="75%" border="1pt solid black">
+                    <fo:table width="70%" border="1pt solid black">
                         <fo:table-body>
-                            <fo:table-row >
+                            <fo:table-row>
                                 <fo:table-cell padding="1pt">
-                                    <fo:block font-family="Arial" font-size="10pt">
+                                    <fo:block font-family="Times New Roman" font-size="10pt">
                                         Branch Code &amp; Name:
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell padding="1pt">
-                                    <fo:block font-size="10pt">
+                                    <fo:block font-size="8pt">
                                         <xsl:value-of select="LoanCardFactSheet/BranchDetails/BranchCode"/>
                                         <xsl:value-of select="LoanCardFactSheet/BranchDetails/BranchName"/>
                                     </fo:block>
@@ -58,62 +58,63 @@
                             </fo:table-row>
                             <fo:table-row>
                                 <fo:table-cell padding="1pt">
-                                    <fo:block font-family="Arial" font-size="10pt">
+                                    <fo:block font-family="Times New Roman" font-size="10pt">
                                         Branch Address:
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell padding="1pt">
-                                    <fo:block font-family="Arial" font-size="10pt">
+                                    <fo:block font-family="Times New Roman" font-size="8pt">
                                         <xsl:value-of select="LoanCardFactSheet/BranchDetails/BranchAddress"/>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
                             <fo:table-row>
                                 <fo:table-cell padding="1pt">
-                                    <fo:block font-family="Arial" font-size="10pt">
+                                    <fo:block font-family="Times New Roman" font-size="10pt">
                                         Regd.office:
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell padding="1pt">
-                                    <fo:block font-family="Arial" font-size="10pt">
+                                    <fo:block font-family="Times New Roman" font-size="8pt">
                                         <xsl:value-of select="LoanCardFactSheet/BranchDetails/RegisteredOffice"/>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
                             <fo:table-row>
                                 <fo:table-cell padding="1pt">
-                                    <fo:block font-family="Arial" font-size="10pt">
+                                    <fo:block font-family="Times New Roman" font-size="10pt">
                                         GST Regn:
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell padding="1pt">
-                                    <fo:block font-family="Arial" font-size="10pt">
+                                    <fo:block font-family="Times New Roman" font-size="8pt" margin-top="1pt" margin-left="-5pt">
                                         <xsl:value-of select="LoanCardFactSheet/BranchDetails/GSTRegn"/>
                                     </fo:block>
                                 </fo:table-cell>
-                                <fo:table-cell padding="2pt" >
-                                    <fo:block font-family="Arial" font-size="10pt">
+                                <fo:table-cell padding="1pt">
+                                    <fo:block font-family="Times New Roman" font-size="10pt" margin-left="10pt" >
                                         CIN:
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell padding="1pt">
-                                    <fo:block font-family="Arial" font-size="10pt">
+                                    <fo:block font-family="Times New Roman" font-size="8pt" margin-left="-20pt" margin-top="1pt">
                                         <xsl:value-of select="LoanCardFactSheet/BranchDetails/CIN"/>
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell padding="1pt">
-                                    <fo:block font-family="Arial" font-size="10pt">
+                                    <fo:block font-family="Times New Roman" font-size="10pt" margin-left="20pt">
                                         PAN:
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell padding="1pt">
-                                    <fo:block font-family="Arial" font-size="10pt">
+                                    <fo:block font-family="Times New Roman" font-size="8pt" margin-left="-8pt" margin-top="1pt">
                                         <xsl:value-of select="LoanCardFactSheet/BranchDetails/PAN"/>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
                         </fo:table-body>
                     </fo:table>
+
 
                     <fo:block space-after="0.5cm"/>
 
@@ -830,12 +831,12 @@
                         <fo:table-header>
                             <fo:table-row border="1pt solid black">
                                 <fo:table-cell border="1pt solid black">
-                                    <fo:block font-family="Arial" font-size="12pt" font-weight="bold" text-align="center">
+                                    <fo:block font-family="Times New Roman" font-size="12pt" font-weight="bold" text-align="center">
                                         Processing Fee &amp; Stamp Duty Charges
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell border="1pt solid black">
-                                    <fo:block font-family="Arial" font-size="12pt" font-weight="bold" text-align="center">
+                                    <fo:block font-family="Times New Roman" font-size="12pt" font-weight="bold" text-align="center">
                                         Insurance Details
                                     </fo:block>
                                 </fo:table-cell>
@@ -855,10 +856,10 @@
 
 
                     <!-- Key Terms and Conditions -->
-                    <fo:block font-family="Arial" font-size="12pt" font-weight="bold" margin-top="1cm" margin-bottom="0.5cm">
+                    <fo:block font-family="Times New Roman" font-size="12pt" font-weight="bold" margin-top="1cm" margin-bottom="0.5cm">
                         Key Terms and Conditions
                     </fo:block>
-                    <fo:block font-family="Arial" font-size="10pt">
+                    <fo:block font-family="Times New Roman" font-size="10pt">
                         <xsl:for-each select="LoanCardFactSheet/KeyTermsAndConditions/Condition">
                             <fo:block>
                                 <xsl:number value="position()" format="1. "/><xsl:value-of select="."/>
@@ -867,7 +868,7 @@
                     </fo:block>
 
                     <!-- Grievance Redressal -->
-                    <fo:block font-family="Arial" font-size="12pt" font-weight="bold" margin-top="1cm" margin-bottom="0.5cm">
+                    <fo:block font-family="Times New Roman" font-size="12pt" font-weight="bold" margin-top="1cm" margin-bottom="0.5cm">
                         Grievance Redressal
                     </fo:block>
                     <fo:block font-size="10pt">
@@ -903,15 +904,14 @@
 
     <xsl:template match="BranchDetails/*">
         <fo:table-row>
-            <fo:table-cell border="1pt solid black" padding="4pt" width="{string-length(name()) * 10}pt">
-                <fo:block font-size="10pt"><xsl:value-of select="name()"/></fo:block>
+            <fo:table-cell border="1pt solid black" padding="4pt">
+                <fo:block><xsl:value-of select="name()"/></fo:block>
             </fo:table-cell>
-            <fo:table-cell border="1pt solid black" padding="4pt" width="{string-length(.) * 10}pt">
-                <fo:block font-size="10pt" wrap-option="wrap"><xsl:value-of select="."/></fo:block>
+            <fo:table-cell border="1pt solid black" padding="4pt">
+                <fo:block><xsl:value-of select="."/></fo:block>
             </fo:table-cell>
         </fo:table-row>
     </xsl:template>
-
 
     <xsl:template match="CustomerDetails/*">
         <fo:table-row>
