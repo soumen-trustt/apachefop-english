@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+    <xsl:output method="xml" indent="yes"/>
+
     <xsl:template match="/">
         <fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
             <fo:layout-master-set>
@@ -17,7 +19,8 @@
                             <fo:external-graphic src="url('src/src/main/resources/HDFC-Bank-Logo.png')" content-width="100px" content-height="100px" scaling="uniform"/>
                         </fo:block>
                     </fo:block-container>
-                    <!--customer photo adding section-->
+
+<!--                    customer photo adding section-->
                     <fo:block-container absolute-position="absolute" top="1.9cm" right="0cm" height="60%" width="70%" margin-left="-29pt">
                         <fo:block>
                             <fo:table>
@@ -33,6 +36,7 @@
                             </fo:table>
                         </fo:block>
                     </fo:block-container>
+
                     <!--Header of the pdf-->
                     <fo:block text-align="center" font-family="Times New Roman" font-size="10pt" font-weight="bold" margin-bottom="1cm" margin-top="-0.8cm">
                         JLG/SHG/IL – LOAN CARD CUM FACT SHEET
@@ -51,8 +55,7 @@
                                 </fo:table-cell>
                                 <fo:table-cell padding="1pt">
                                     <fo:block font-size="8pt">
-                                        <xsl:value-of select="LoanCardFactSheet/BranchDetails/BranchCode"/>
-                                        <xsl:value-of select="LoanCardFactSheet/BranchDetails/BranchName"/>
+                                        <xsl:value-of select="concat(LoanCardFactSheet/BranchDetails/BranchCode, ' ', LoanCardFactSheet/BranchDetails/BranchName)"/>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
@@ -195,632 +198,596 @@
                             <xsl:for-each select="LoanCardFactSheet/Installments/*">
                                 <fo:table-row>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstNo"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstNo"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="RepaymentDate"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="RepaymentDate"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="OutstandingPrincipal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="OutstandingPrincipal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Principal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Principal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Interest"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Interest"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstAmount"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstAmount"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="PaidStatus"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="PaidStatus"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollected"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollected"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollectedOn"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollectedOn"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpCode"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="EmpCode"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpSignature"/></fo:block>
-                                    </fo:table-cell>
-                                </fo:table-row>
-                            </xsl:for-each>
-                            <xsl:for-each select="LoanCardFactSheet/Installments/*">
-                                <fo:table-row>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstNo"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="RepaymentDate"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="OutstandingPrincipal"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Principal"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Interest"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstAmount"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="PaidStatus"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollected"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollectedOn"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpCode"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpSignature"/></fo:block>
+                                        <fo:block  text-align="center" font-size="6pt"><xsl:value-of select="EmpSignature"/></fo:block>
                                     </fo:table-cell>
                                 </fo:table-row>
                             </xsl:for-each>
                             <xsl:for-each select="LoanCardFactSheet/Installments/*">
                                 <fo:table-row>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstNo"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstNo"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="RepaymentDate"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="RepaymentDate"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="OutstandingPrincipal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="OutstandingPrincipal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Principal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Principal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Interest"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Interest"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstAmount"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstAmount"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="PaidStatus"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="PaidStatus"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollected"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollected"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollectedOn"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollectedOn"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpCode"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="EmpCode"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpSignature"/></fo:block>
-                                    </fo:table-cell>
-                                </fo:table-row>
-                            </xsl:for-each>
-                            <xsl:for-each select="LoanCardFactSheet/Installments/*">
-                                <fo:table-row>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstNo"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="RepaymentDate"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="OutstandingPrincipal"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Principal"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Interest"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstAmount"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="PaidStatus"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollected"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollectedOn"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpCode"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpSignature"/></fo:block>
+                                        <fo:block  text-align="center" font-size="6pt"><xsl:value-of select="EmpSignature"/></fo:block>
                                     </fo:table-cell>
                                 </fo:table-row>
                             </xsl:for-each>
                             <xsl:for-each select="LoanCardFactSheet/Installments/*">
                                 <fo:table-row>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstNo"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstNo"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="RepaymentDate"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="RepaymentDate"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="OutstandingPrincipal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="OutstandingPrincipal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Principal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Principal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Interest"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Interest"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstAmount"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstAmount"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="PaidStatus"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="PaidStatus"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollected"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollected"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollectedOn"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollectedOn"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpCode"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="EmpCode"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpSignature"/></fo:block>
-                                    </fo:table-cell>
-                                </fo:table-row>
-                            </xsl:for-each>
-                            <xsl:for-each select="LoanCardFactSheet/Installments/*">
-                                <fo:table-row>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstNo"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="RepaymentDate"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="OutstandingPrincipal"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Principal"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Interest"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstAmount"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="PaidStatus"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollected"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollectedOn"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpCode"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpSignature"/></fo:block>
+                                        <fo:block  text-align="center" font-size="6pt"><xsl:value-of select="EmpSignature"/></fo:block>
                                     </fo:table-cell>
                                 </fo:table-row>
                             </xsl:for-each>
                             <xsl:for-each select="LoanCardFactSheet/Installments/*">
                                 <fo:table-row>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstNo"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstNo"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="RepaymentDate"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="RepaymentDate"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="OutstandingPrincipal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="OutstandingPrincipal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Principal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Principal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Interest"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Interest"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstAmount"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstAmount"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="PaidStatus"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="PaidStatus"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollected"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollected"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollectedOn"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollectedOn"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpCode"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="EmpCode"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpSignature"/></fo:block>
-                                    </fo:table-cell>
-                                </fo:table-row>
-                            </xsl:for-each>
-                            <xsl:for-each select="LoanCardFactSheet/Installments/*">
-                                <fo:table-row>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstNo"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="RepaymentDate"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="OutstandingPrincipal"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Principal"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Interest"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstAmount"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="PaidStatus"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollected"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollectedOn"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpCode"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpSignature"/></fo:block>
+                                        <fo:block  text-align="center" font-size="6pt"><xsl:value-of select="EmpSignature"/></fo:block>
                                     </fo:table-cell>
                                 </fo:table-row>
                             </xsl:for-each>
                             <xsl:for-each select="LoanCardFactSheet/Installments/*">
                                 <fo:table-row>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstNo"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstNo"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="RepaymentDate"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="RepaymentDate"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="OutstandingPrincipal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="OutstandingPrincipal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Principal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Principal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Interest"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Interest"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstAmount"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstAmount"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="PaidStatus"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="PaidStatus"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollected"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollected"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollectedOn"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollectedOn"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpCode"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="EmpCode"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpSignature"/></fo:block>
-                                    </fo:table-cell>
-                                </fo:table-row>
-                            </xsl:for-each>
-                            <xsl:for-each select="LoanCardFactSheet/Installments/*">
-                                <fo:table-row>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstNo"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="RepaymentDate"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="OutstandingPrincipal"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Principal"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Interest"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstAmount"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="PaidStatus"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollected"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollectedOn"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpCode"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpSignature"/></fo:block>
+                                        <fo:block  text-align="center" font-size="6pt"><xsl:value-of select="EmpSignature"/></fo:block>
                                     </fo:table-cell>
                                 </fo:table-row>
                             </xsl:for-each>
                             <xsl:for-each select="LoanCardFactSheet/Installments/*">
                                 <fo:table-row>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstNo"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstNo"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="RepaymentDate"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="RepaymentDate"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="OutstandingPrincipal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="OutstandingPrincipal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Principal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Principal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Interest"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Interest"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstAmount"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstAmount"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="PaidStatus"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="PaidStatus"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollected"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollected"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollectedOn"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollectedOn"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpCode"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="EmpCode"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpSignature"/></fo:block>
-                                    </fo:table-cell>
-                                </fo:table-row>
-                            </xsl:for-each>
-                            <xsl:for-each select="LoanCardFactSheet/Installments/*">
-                                <fo:table-row>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstNo"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="RepaymentDate"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="OutstandingPrincipal"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Principal"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Interest"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstAmount"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="PaidStatus"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollected"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollectedOn"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpCode"/></fo:block>
-                                    </fo:table-cell>
-                                    <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpSignature"/></fo:block>
+                                        <fo:block  text-align="center" font-size="6pt"><xsl:value-of select="EmpSignature"/></fo:block>
                                     </fo:table-cell>
                                 </fo:table-row>
                             </xsl:for-each>
                             <xsl:for-each select="LoanCardFactSheet/Installments/*">
                                 <fo:table-row>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstNo"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstNo"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="RepaymentDate"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="RepaymentDate"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="OutstandingPrincipal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="OutstandingPrincipal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Principal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Principal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Interest"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Interest"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstAmount"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstAmount"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="PaidStatus"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="PaidStatus"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollected"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollected"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollectedOn"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollectedOn"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpCode"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="EmpCode"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpSignature"/></fo:block>
+                                        <fo:block  text-align="center" font-size="6pt"><xsl:value-of select="EmpSignature"/></fo:block>
                                     </fo:table-cell>
                                 </fo:table-row>
                             </xsl:for-each>
                             <xsl:for-each select="LoanCardFactSheet/Installments/*">
                                 <fo:table-row>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstNo"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstNo"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="RepaymentDate"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="RepaymentDate"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="OutstandingPrincipal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="OutstandingPrincipal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Principal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Principal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Interest"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Interest"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstAmount"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstAmount"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="PaidStatus"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="PaidStatus"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollected"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollected"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollectedOn"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollectedOn"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpCode"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="EmpCode"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpSignature"/></fo:block>
+                                        <fo:block  text-align="center" font-size="6pt"><xsl:value-of select="EmpSignature"/></fo:block>
                                     </fo:table-cell>
                                 </fo:table-row>
                             </xsl:for-each>
                             <xsl:for-each select="LoanCardFactSheet/Installments/*">
                                 <fo:table-row>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstNo"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstNo"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="RepaymentDate"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="RepaymentDate"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="OutstandingPrincipal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="OutstandingPrincipal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Principal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Principal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Interest"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Interest"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstAmount"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstAmount"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="PaidStatus"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="PaidStatus"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollected"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollected"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollectedOn"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollectedOn"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpCode"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="EmpCode"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpSignature"/></fo:block>
+                                        <fo:block  text-align="center" font-size="6pt"><xsl:value-of select="EmpSignature"/></fo:block>
                                     </fo:table-cell>
                                 </fo:table-row>
                             </xsl:for-each>
                             <xsl:for-each select="LoanCardFactSheet/Installments/*">
                                 <fo:table-row>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstNo"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstNo"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="RepaymentDate"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="RepaymentDate"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="OutstandingPrincipal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="OutstandingPrincipal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Principal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Principal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Interest"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Interest"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstAmount"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstAmount"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="PaidStatus"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="PaidStatus"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollected"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollected"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollectedOn"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollectedOn"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpCode"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="EmpCode"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpSignature"/></fo:block>
+                                        <fo:block  text-align="center" font-size="6pt"><xsl:value-of select="EmpSignature"/></fo:block>
                                     </fo:table-cell>
                                 </fo:table-row>
                             </xsl:for-each>
                             <xsl:for-each select="LoanCardFactSheet/Installments/*">
                                 <fo:table-row>
-                                    <!-- Concatenate InstNo and RepaymentDate -->
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block>
-                                            <xsl:value-of select="concat(InstNo, '  ', RepaymentDate)"/>
-                                        </fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstNo"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="OutstandingPrincipal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="RepaymentDate"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Principal"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="OutstandingPrincipal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="Interest"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Principal"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="InstAmount"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Interest"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="PaidStatus"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstAmount"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollected"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="PaidStatus"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="AmountCollectedOn"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollected"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpCode"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollectedOn"/></fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="1pt solid black" padding="15pt">
-                                        <fo:block><xsl:value-of select="EmpSignature"/></fo:block>
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="EmpCode"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block  text-align="center" font-size="6pt"><xsl:value-of select="EmpSignature"/></fo:block>
                                     </fo:table-cell>
                                 </fo:table-row>
                             </xsl:for-each>
+                            <xsl:for-each select="LoanCardFactSheet/Installments/*">
+                                <fo:table-row>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstNo"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="RepaymentDate"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="OutstandingPrincipal"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Principal"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Interest"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstAmount"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="PaidStatus"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollected"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollectedOn"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="EmpCode"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block  text-align="center" font-size="6pt"><xsl:value-of select="EmpSignature"/></fo:block>
+                                    </fo:table-cell>
+                                </fo:table-row>
+                            </xsl:for-each>
+                            <xsl:for-each select="LoanCardFactSheet/Installments/*">
+                                <fo:table-row>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstNo"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="RepaymentDate"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="OutstandingPrincipal"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Principal"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Interest"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstAmount"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="PaidStatus"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollected"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollectedOn"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="EmpCode"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block  text-align="center" font-size="6pt"><xsl:value-of select="EmpSignature"/></fo:block>
+                                    </fo:table-cell>
+                                </fo:table-row>
+                            </xsl:for-each>
+                            <xsl:for-each select="LoanCardFactSheet/Installments/*">
+                                <fo:table-row>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstNo"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="RepaymentDate"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="OutstandingPrincipal"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Principal"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Interest"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstAmount"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="PaidStatus"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollected"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollectedOn"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="EmpCode"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block  text-align="center" font-size="6pt"><xsl:value-of select="EmpSignature"/></fo:block>
+                                    </fo:table-cell>
+                                </fo:table-row>
+                            </xsl:for-each>
+                            <xsl:for-each select="LoanCardFactSheet/Installments/*">
+                                <fo:table-row>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstNo"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="RepaymentDate"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="OutstandingPrincipal"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Principal"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Interest"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstAmount"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="PaidStatus"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollected"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollectedOn"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="EmpCode"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block  text-align="center" font-size="6pt"><xsl:value-of select="EmpSignature"/></fo:block>
+                                    </fo:table-cell>
+                                </fo:table-row>
+                            </xsl:for-each>
+                            <xsl:for-each select="LoanCardFactSheet/Installments/*">
+                                <fo:table-row>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstNo"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="RepaymentDate"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="OutstandingPrincipal"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Principal"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="Interest"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="InstAmount"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="PaidStatus"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollected"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="AmountCollectedOn"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block text-align="center" font-size="6pt"><xsl:value-of select="EmpCode"/></fo:block>
+                                    </fo:table-cell>
+                                    <fo:table-cell border="1pt solid black" padding="15pt">
+                                        <fo:block  text-align="center" font-size="6pt"><xsl:value-of select="EmpSignature"/></fo:block>
+                                    </fo:table-cell>
+                                </fo:table-row>
+                            </xsl:for-each>
+
                         </fo:table-body>
                     </fo:table>
 
