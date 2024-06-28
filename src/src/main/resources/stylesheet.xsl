@@ -20,18 +20,15 @@
                         </fo:block>
                     </fo:block-container>
 
-<!--customer photo adding section-->
-                    <fo:block-container absolute-position="absolute" top="1.9cm" right="0cm" height="60%" width="70%" margin-left="-29pt">
+                    <!--customer photo adding section-->
+                    <fo:block-container absolute-position="absolute" top="1.9cm" right="0cm" height="40%" width="57%" margin-left="-27pt">
                         <fo:block>
                             <fo:table>
                                 <fo:table-body>
                                     <fo:table-row>
-                                        <fo:table-cell display-align="right" width="40%" padding-left="90%" padding-top="20%">
+                                        <fo:table-cell display-align="right" width="40%"  padding-left="90%" padding-top="20%">
                                             <fo:block text-align="center" border="1pt solid black" padding="20%">
                                                 <fo:inline>Customer Photo</fo:inline>
-<!--                                                <fo:block>-->
-<!--                                                    <fo:external-graphic src="url('src/src/main/resources/mypic.jpg')" content-width="50px" content-height="60px" scaling="uniform"/>-->
-<!--                                                </fo:block>-->
                                             </fo:block>
                                         </fo:table-cell>
                                     </fo:table-row>
@@ -40,14 +37,15 @@
                         </fo:block>
                     </fo:block-container>
 
-
                     <!--Header of the pdf-->
                     <fo:block text-align="center" font-family="Times New Roman" font-size="10pt" font-weight="bold" margin-bottom="1cm" margin-top="-0.8cm">
                         JLG/SHG/IL – LOAN CARD CUM FACT SHEET
                     </fo:block>
 
                     <!-- Branch Details -->
-                    <fo:table width="70%" border="1pt solid black">
+                    <fo:block font-family="Times New Roman" font-size="10pt" font-weight="bold" margin-top="1cm" margin-bottom="0.5cm">
+                    </fo:block>
+                    <fo:table width="76.2%" border="1pt solid black">
                         <fo:table-body>
                             <fo:table-row>
                                 <fo:table-cell padding="1pt">
@@ -61,7 +59,6 @@
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
-
                             <fo:table-row>
                                 <fo:table-cell padding="1pt">
                                     <fo:block font-family="Times New Roman" font-size="10pt">
@@ -98,7 +95,7 @@
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell padding="1pt">
-                                    <fo:block font-family="Times New Roman" font-size="10pt" margin-left="10pt">
+                                    <fo:block font-family="Times New Roman" font-size="10pt" margin-left="10pt" >
                                         CIN:
                                     </fo:block>
                                 </fo:table-cell>
@@ -122,7 +119,7 @@
                     </fo:table>
 
 
-                    <fo:block space-after="0.8cm"/>
+                    <fo:block space-after="0.2cm"/>
 
                     <!-- Customer Details -->
 
