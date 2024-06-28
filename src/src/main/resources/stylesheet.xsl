@@ -21,18 +21,15 @@
                     </fo:block-container>
 
                     <!--customer photo adding section-->
+
                     <fo:block-container absolute-position="absolute" left="82.5%" height="100pt" width="80pt" padding="5pt">
                         <fo:block text-align="center" border="1pt solid black" padding="5pt" height="100%" width="100%">
                             <fo:block>
-<!--                                <xsl:with-param name="CustomerPhoto">Customer Photo</xsl:with-param>-->
+                                <xsl:with-param name="CustomerPhoto">Customer Photo</xsl:with-param>
                                 <fo:external-graphic src="url('src/src/main/resources/passport.jpeg')" content-width="70pt" content-height="90pt" scaling="uniform"/>
                             </fo:block>
                         </fo:block>
                     </fo:block-container>
-
-
-
-
 
 
 
@@ -52,7 +49,7 @@
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell padding="1pt">
-                                    <fo:block font-size="8pt">
+                                    <fo:block font-size="8pt" font-family="Times New Roman">
                                         <xsl:value-of select="concat(LoanCardFactSheet/BranchDetails/BranchCode, ' ', LoanCardFactSheet/BranchDetails/BranchName)"/>
                                     </fo:block>
                                 </fo:table-cell>
@@ -835,7 +832,7 @@
                     </fo:block>
 
                     <!-- Grievance Redressal -->
-                    <fo:block font-family="Times New Roman" font-size="8pt" font-weight="bold" margin-top="1cm" margin-bottom="0.5cm">
+                    <fo:block font-family="Times New Roman" font-size="8pt" font-weight="bold" margin-top="0.5cm" margin-bottom="0.3cm">
                         Grievance Redressal
                     </fo:block>
                     <fo:block font-size="8pt" font-family="Times New Roman">
@@ -853,7 +850,7 @@
                             </fo:table-row>
                         </fo:table-header>
                         <fo:table-body>
-                            <fo:table-row height="20mm"> <!-- Increase the height of the row -->
+                            <fo:table-row height="10mm">
                                 <fo:table-cell border="1pt solid black">
                                     <fo:block font-family="Times New Roman"  font-size="8pt" text-align="center"><xsl:value-of select="LoanCardFactSheet/GrievanceRedressal/NodalOfficerName"/></fo:block>
                                 </fo:table-cell>
