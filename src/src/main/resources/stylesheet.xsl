@@ -21,21 +21,21 @@
                     </fo:block-container>
 
                     <!--customer photo adding section-->
-                    <fo:block-container absolute-position="absolute" top="1.9cm" right="0cm" height="40%" width="57%" margin-left="-27pt">
-                        <fo:block>
-                            <fo:table>
-                                <fo:table-body>
-                                    <fo:table-row>
-                                        <fo:table-cell display-align="right" width="40%"  padding-left="90%" padding-top="20%">
-                                            <fo:block text-align="center" border="1pt solid black" padding="20%">
-                                                <fo:inline>Customer Photo</fo:inline>
-                                            </fo:block>
-                                        </fo:table-cell>
-                                    </fo:table-row>
-                                </fo:table-body>
-                            </fo:table>
+                    <fo:block-container absolute-position="absolute" top="0.3cm" left="80%" height="150pt" width="80pt" padding="5pt">
+                        <fo:block text-align="center" border="1pt solid black" padding="5pt" height="100%" width="100%">
+                            <fo:block>
+                                <xsl:with-param name="CustomerPhoto">Customer Photo</xsl:with-param>
+                                <fo:external-graphic src="url('src/src/main/resources/passport.jpeg')" content-width="70pt" content-height="90pt" scaling="uniform"/>
+                            </fo:block>
                         </fo:block>
                     </fo:block-container>
+
+
+
+
+
+
+
 
                     <!--Header of the pdf-->
                     <fo:block text-align="center" font-family="Times New Roman" font-size="10pt" font-weight="bold" margin-bottom="1cm" margin-top="-0.8cm">
@@ -43,9 +43,7 @@
                     </fo:block>
 
                     <!-- Branch Details -->
-                    <fo:block font-family="Times New Roman" font-size="10pt" font-weight="bold" margin-top="1cm" margin-bottom="0.5cm">
-                    </fo:block>
-                    <fo:table width="76.2%" border="1pt solid black">
+                    <fo:table width="70%" border="1pt solid black">
                         <fo:table-body>
                             <fo:table-row>
                                 <fo:table-cell padding="1pt">
@@ -59,6 +57,7 @@
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
+
                             <fo:table-row>
                                 <fo:table-cell padding="1pt">
                                     <fo:block font-family="Times New Roman" font-size="10pt">
@@ -95,7 +94,7 @@
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell padding="1pt">
-                                    <fo:block font-family="Times New Roman" font-size="10pt" margin-left="10pt" >
+                                    <fo:block font-family="Times New Roman" font-size="10pt" margin-left="10pt">
                                         CIN:
                                     </fo:block>
                                 </fo:table-cell>
@@ -119,7 +118,7 @@
                     </fo:table>
 
 
-                    <fo:block space-after="0.2cm"/>
+                    <fo:block space-after="0.3cm"/>
 
                     <!-- Customer Details -->
 
@@ -846,20 +845,20 @@
                         <fo:table-header>
                             <fo:table-row>
                                 <fo:table-cell border="1pt solid black">
-                                    <fo:block font-size="10pt" font-family="Times New Roman">Nodal Officer Name</fo:block>
+                                    <fo:block text-align="center" font-size="10pt" font-family="Times New Roman">Nodal Officer Name</fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell border="1pt solid black">
-                                    <fo:block font-size="10pt" font-family="Times New Roman">Nodal Officer Contact No</fo:block>
+                                    <fo:block text-align="center" font-size="10pt" font-family="Times New Roman">Nodal Officer Contact No</fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
                         </fo:table-header>
                         <fo:table-body>
                             <fo:table-row height="20mm"> <!-- Increase the height of the row -->
                                 <fo:table-cell border="1pt solid black">
-                                    <fo:block><xsl:value-of select="LoanCardFactSheet/GrievanceRedressal/NodalOfficerName"/></fo:block>
+                                    <fo:block text-align="center"><xsl:value-of select="LoanCardFactSheet/GrievanceRedressal/NodalOfficerName"/></fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell border="1pt solid black">
-                                    <fo:block><xsl:value-of select="LoanCardFactSheet/GrievanceRedressal/NodalOfficerContactNo"/></fo:block>
+                                    <fo:block text-align="center"><xsl:value-of select="LoanCardFactSheet/GrievanceRedressal/NodalOfficerContactNo"/></fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
                         </fo:table-body>
