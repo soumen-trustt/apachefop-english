@@ -366,37 +366,37 @@
                         <fo:table-header>
                             <fo:table-row>
                                 <fo:table-cell border="1pt solid black" padding="2pt">
-                                    <fo:block font-size="8">Inst No.</fo:block>
+                                    <fo:block font-size="8" text-align="center">Inst No.</fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell border="1pt solid black" padding="2pt">
-                                    <fo:block font-size="8">Repayment Date</fo:block>
+                                    <fo:block font-size="8" text-align="center">Repayment Date</fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell border="1pt solid black" padding="2pt">
-                                    <fo:block font-size="8">Outstanding Principal</fo:block>
+                                    <fo:block font-size="8" text-align="center">Outstanding Principal</fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell border="1pt solid black" padding="2pt">
-                                    <fo:block font-size="8">Principal</fo:block>
+                                    <fo:block font-size="8" text-align="center">Principal</fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell border="1pt solid black" padding="2pt">
-                                    <fo:block font-size="8">Interest</fo:block>
+                                    <fo:block font-size="8" text-align="center">Interest</fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell border="1pt solid black" padding="2pt">
-                                    <fo:block font-size="8">Inst Amount</fo:block>
+                                    <fo:block font-size="8" text-align="center">Inst Amount</fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell border="1pt solid black" padding="2pt">
-                                    <fo:block font-size="8">Paid Status</fo:block>
+                                    <fo:block font-size="8" text-align="center">Paid Status</fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell border="1pt solid black" padding="2pt">
-                                    <fo:block font-size="8">Amount Collected</fo:block>
+                                    <fo:block font-size="8" text-align="center">Amount Collected</fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell border="1pt solid black" padding="2pt">
-                                    <fo:block font-size="8">Amount Collected On</fo:block>
+                                    <fo:block font-size="8" text-align="center">Amount Collected On</fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell border="1pt solid black" padding="2pt">
-                                    <fo:block font-size="8">Emp Code</fo:block>
+                                    <fo:block font-size="8" text-align="center">Emp Code</fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell border="1pt solid black" padding="2pt">
-                                    <fo:block font-size="8">Emp Signature</fo:block>
+                                    <fo:block font-size="8" text-align="center">Emp Signature</fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
                         </fo:table-header>

@@ -9,7 +9,7 @@
         <PAN>ABCDE1234F</PAN>
     </BranchDetails>
     <CustomerPhoto>
-        <Photo>/home/soumenmanna/Desktop/apachefop/src/src/main/resources/mypic.jpg</Photo>
+        <Photo>src/src/main/resources/mypic.jpg</Photo>
     </CustomerPhoto>
     <CustomerDetails>
         <CustomerName>John Doe</CustomerName><CustomerID>10001</CustomerID>
