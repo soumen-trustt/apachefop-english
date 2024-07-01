@@ -14,7 +14,7 @@
             <fo:page-sequence master-reference="simple">
                 <fo:flow flow-name="xsl-region-body">
                     <!--hdfc logo added-->
-                    <fo:block-container absolute-position="absolute" top="-1cm" left="0cm">
+                    <fo:block-container absolute-position="absolute" top="-0.9cm" left="0cm">
                         <fo:block>
                             <fo:external-graphic src="url('src/src/main/resources/hdfclogo.png')" content-width="100px" content-height="100px" scaling="uniform"/>
                         </fo:block>
@@ -26,7 +26,7 @@
                         <fo:block text-align="center" border="1pt solid black" padding="5pt" height="100%" width="100%">
                             <fo:block>
                                 <xsl:with-param name="CustomerPhoto">Customer Photo</xsl:with-param>
-                                <fo:external-graphic src="url('src/src/main/resources/passport.jpeg')" content-width="50pt" content-height="50pt" scaling="uniform"/>
+                                <fo:external-graphic src="url('src/src/main/resources/passport.jpeg')" content-width="80pt" content-height="70pt" scaling="uniform"/>
                             </fo:block>
                         </fo:block>
                     </fo:block-container>
@@ -40,9 +40,9 @@
                     </fo:block>
 
                     <!-- Branch Details -->
-                    <fo:table width="70%" border="1pt solid black">
+                    <fo:table height="150%" width="80%" border="1pt solid black">
                         <fo:table-body>
-                            <fo:table-row>
+                            <fo:table-row height="14pt" margin-left="2pt" >
                                 <fo:table-cell padding="1pt" number-columns-spanned="2">
                                     <fo:block font-family="Times New Roman" font-size="8pt">
                                         <fo:inline keep-together.within-line="always">
@@ -55,7 +55,7 @@
                                 </fo:table-cell>
                             </fo:table-row>
 
-                            <fo:table-row>
+                            <fo:table-row height="14pt" margin-left="2pt">
                                 <fo:table-cell padding="1pt">
                                     <fo:block font-family="Times New Roman" font-size="8pt">
                                         Branch Address:
@@ -72,7 +72,7 @@
                             </fo:table-row>
 
 
-                            <fo:table-row>
+                            <fo:table-row height="14pt" margin-left="2pt">
                                 <fo:table-cell padding="1pt">
                                     <fo:block font-family="Times New Roman" font-size="8pt">
                                         Regd.office:
@@ -87,7 +87,7 @@
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
-                            <fo:table-row>
+                            <fo:table-row height="14pt" margin-left="2pt">
                                 <fo:table-cell padding="1pt">
                                     <fo:block font-family="Times New Roman" font-size="8pt">
                                         GST Regn:
@@ -135,25 +135,224 @@
                             <!-- Loop through the first set of customer details -->
                             <xsl:for-each select="LoanCardFactSheet/CustomerDetails">
                                 <!-- First set of details -->
-                                <fo:table-row>
+                                <fo:table-row height="11pt">
                                     <fo:table-cell padding="4pt" border="1pt solid black">
                                         <fo:block font-size="8pt" font-family="Times New Roman">
-                                            <xsl:for-each select="*[self::CustomerName or self::CustomerID or self::LoanAccountNo or self::GroupName or self::Product or self::HusbandName or self::CustomerAddress or self::DisbursedDate or self::LoanAmount or self::TotalInterestCharge or self::OtherUpfrontCharges or self::ProcessingFees or self::InsuranceAmount or self::OtherCharges or self::NetDisbursedAmount or self::TotalAmountToBePaid or self::AnnualizedInterestRate or self::RateOfInterest]">
-                                                <fo:block>
-                                                    <xsl:value-of select="name()"/>: <xsl:value-of select="."/>
-                                                </fo:block>
+                                            <fo:inline>
+                                                <!-- Concatenate Customer Name and Customer ID -->
+                                                Customer Name &amp; ID: <xsl:value-of select="CustomerName"/> &amp; <xsl:value-of select="CustomerID"/>
+                                            </fo:inline>
+
+                                            <!-- Other fields -->
+                                        <fo:block>
+                                            <xsl:for-each select="*[self::LoanAccount or self::GroupName or self::Product or self::HusbandName or self::CustomerAddress or self::DisbursedDate or self::LoanAmount or self::TotalInterestCharge or self::OtherUpfrontCharges or self::ProcessingFees or self::InsuranceAmount or self::OtherCharges or self::NetDisbursedAmount or self::TotalAmountToBePaid or self::AnnualizedInterestRate or self::RateOfInterest]">
+                                                <xsl:choose>
+                                                    <!-- Special handling for LoanAccountNo -->
+                                                    <xsl:when test="name() = 'LoanAccount'">
+                                                        <fo:block>
+                                                            <xsl:value-of select="name()"/> <xsl:text> </xsl:text>No:<xsl:value-of select="."/>
+                                                        </fo:block>
+                                                    </xsl:when>
+                                                    <!-- Special handling for other fields -->
+                                                    <xsl:when test="name() = 'GroupName'">
+                                                        <fo:block>
+                                                            Group Name: <xsl:value-of select="."/>
+                                                        </fo:block>
+                                                    </xsl:when>
+                                                    <xsl:when test="name() = 'Product'">
+                                                        <fo:block>
+                                                            Product: <xsl:value-of select="."/>
+                                                        </fo:block>
+                                                    </xsl:when>
+                                                    <xsl:when test="name() = 'HusbandName'">
+                                                        <fo:block>
+                                                            Husband Name: <xsl:value-of select="."/>
+                                                        </fo:block>
+                                                    </xsl:when>
+                                                    <xsl:when test="name() = 'CustomerAddress'">
+                                                        <fo:block>
+                                                            Customer Address: <xsl:value-of select="."/>
+                                                        </fo:block>
+                                                    </xsl:when>
+                                                    <xsl:when test="name() = 'DisbursedDate'">
+                                                        <fo:block>
+                                                            Disbursed Date: <xsl:value-of select="."/>
+                                                        </fo:block>
+                                                    </xsl:when>
+                                                    <xsl:when test="name() = 'LoanAmount'">
+                                                        <fo:block>
+                                                            Loan Amount: <xsl:value-of select="."/>
+                                                        </fo:block>
+                                                    </xsl:when>
+                                                    <xsl:when test="name() = 'TotalInterestCharge'">
+                                                        <fo:block>
+                                                            Total Interest Charge: <xsl:value-of select="."/>
+                                                        </fo:block>
+                                                    </xsl:when>
+                                                    <xsl:when test="name() = 'OtherUpfrontCharges'">
+                                                        <fo:block>
+                                                            Other Upfront Charges: <xsl:value-of select="."/>
+                                                        </fo:block>
+                                                    </xsl:when>
+                                                    <xsl:when test="name() = 'ProcessingFees'">
+                                                        <fo:block>
+                                                            Processing Fees: <xsl:value-of select="."/>
+                                                        </fo:block>
+                                                    </xsl:when>
+                                                    <xsl:when test="name() = 'InsuranceAmount'">
+                                                        <fo:block>
+                                                            Insurance Amount: <xsl:value-of select="."/>
+                                                        </fo:block>
+                                                    </xsl:when>
+                                                    <xsl:when test="name() = 'OtherCharges'">
+                                                        <fo:block>
+                                                            Other Charges: <xsl:value-of select="."/>
+                                                        </fo:block>
+                                                    </xsl:when>
+                                                    <xsl:when test="name() = 'NetDisbursedAmount'">
+                                                        <fo:block>
+                                                            Net Disbursed Amount: <xsl:value-of select="."/>
+                                                        </fo:block>
+                                                    </xsl:when>
+                                                    <xsl:when test="name() = 'TotalAmountToBePaid'">
+                                                        <fo:block>
+                                                            Total Amount to be Paid: <xsl:value-of select="."/>
+                                                        </fo:block>
+                                                    </xsl:when>
+                                                    <xsl:when test="name() = 'AnnualizedInterestRate'">
+                                                        <fo:block>
+                                                            Annualized Interest Rate: <xsl:value-of select="."/>
+                                                        </fo:block>
+                                                    </xsl:when>
+                                                    <xsl:when test="name() = 'RateOfInterest'">
+                                                        <fo:block>
+                                                            Rate of Interest: <xsl:value-of select="."/>
+                                                        </fo:block>
+                                                    </xsl:when>
+                                                    <!-- Default behavior for other fields -->
+                                                    <xsl:otherwise>
+                                                        <fo:block>
+                                                            <xsl:value-of select="name()"/>: <xsl:value-of select="."/>
+                                                        </fo:block>
+                                                    </xsl:otherwise>
+                                                </xsl:choose>
                                             </xsl:for-each>
                                         </fo:block>
+                                    </fo:block>
                                     </fo:table-cell>
+
                                     <!-- Second set of details -->
                                     <fo:table-cell padding="4pt" border="1pt solid black">
                                         <fo:block font-size="8pt" font-family="Times New Roman">
-                                            <xsl:for-each select="*[not(self::CustomerName or self::CustomerID or self::LoanAccountNo or self::GroupName or self::Product or self::HusbandName or self::CustomerAddress or self::DisbursedDate or self::LoanAmount or self::TotalInterestCharge or self::OtherUpfrontCharges or self::ProcessingFees or self::InsuranceAmount or self::OtherCharges or self::NetDisbursedAmount or self::TotalAmountToBePaid or self::AnnualizedInterestRate or self::RateOfInterest)]">
+                                        <fo:block>
+                                            <xsl:for-each select="*[self::MobileNo or self::FatherName or self::CoApplicantName or self::CentrePlace or self::LoanTerm or self::RepaymentFrequency or self::NumberOfInstallments or self::RepaymentDate or self::RepaymentAmount or self::LendingType or self::LoanCycle or self::BankAccountNo or self::Purpose or self::BeneficiaryAccountName or self::BankName or self::NetoffAccountAmount]">
+                                            <xsl:choose>
+                                            <!-- Special handling for MobileNo -->
+                                            <xsl:when test="name() = 'MobileNo'">
                                                 <fo:block>
-                                                    <xsl:value-of select="name()"/>: <xsl:value-of select="."/>
+                                                    Mobile No: <xsl:value-of select="."/>
                                                 </fo:block>
+                                            </xsl:when>
+                                            <!-- Special handling for FatherName -->
+                                            <xsl:when test="name() = 'FatherName'">
+                                                <fo:block>
+                                                    Father Name: <xsl:value-of select="."/>
+                                                </fo:block>
+                                            </xsl:when>
+                                            <!-- Special handling for CoApplicantName -->
+                                            <xsl:when test="name() = 'CoApplicantName'">
+                                               <fo:block>
+                                                    Co-Applicant Name: <xsl:value-of select="."/>
+                                               </fo:block>
+                                            </xsl:when>
+                                            <!-- Special handling for CentrePlace -->
+                                            <xsl:when test="name() = 'CentrePlace'">
+                                                <fo:block>
+                                                    Centre Place: <xsl:value-of select="."/>
+                                                </fo:block>
+                                            </xsl:when>
+                                            <!-- Special handling for LoanTerm -->
+                                            <xsl:when test="name() = 'LoanTerm'">
+                                                <fo:block>
+                                                    Loan Term: <xsl:value-of select="."/>
+                                                </fo:block>
+                                            </xsl:when>
+                                            <!-- Special handling for RepaymentFrequency -->
+                                            <xsl:when test="name() = 'RepaymentFrequency'">
+                                                <fo:block>
+                                                    Repayment Frequency: <xsl:value-of select="."/>
+                                                </fo:block>
+                                            </xsl:when>
+                                            <!-- Special handling for NumberOfInstallments -->
+                                            <xsl:when test="name() = 'NumberOfInstallments'">
+                                                <fo:block>
+                                                    Number of Installments: <xsl:value-of select="."/>
+                                                </fo:block>
+                                            </xsl:when>
+                                            <!-- Special handling for RepaymentDate -->
+                                            <xsl:when test="name() = 'RepaymentDate'">
+                                                <fo:block>
+                                                    Repayment Date: <xsl:value-of select="."/>
+                                                </fo:block>
+                                            </xsl:when>
+                                            <!-- Special handling for RepaymentAmount -->
+                                            <xsl:when test="name() = 'RepaymentAmount'">
+                                               <fo:block>
+                                                    Repayment Amount: <xsl:value-of select="."/>
+                                               </fo:block>
+                                            </xsl:when>
+                                            <!-- Special handling for LendingType -->
+                                            <xsl:when test="name() = 'LendingType'">
+                                               <fo:block>
+                                                    Lending Type: <xsl:value-of select="."/>
+                                               </fo:block>
+                                            </xsl:when>
+                                            <!-- Special handling for LoanCycle -->
+                                            <xsl:when test="name() = 'LoanCycle'">
+                                                  <fo:block>
+                                                     Loan Cycle: <xsl:value-of select="."/>
+                                                  </fo:block>
+                                            </xsl:when>
+                                            <!-- Special handling for BankAccountNo -->
+                                            <xsl:when test="name() = 'BankAccountNo'">
+                                                <fo:block>
+                                                    Bank Account No: <xsl:value-of select="."/>
+                                                </fo:block>
+                                            </xsl:when>
+                                            <!-- Special handling for Purpose -->
+                                            <xsl:when test="name() = 'Purpose'">
+                                                <fo:block>
+                                                    Purpose: <xsl:value-of select="."/>
+                                                </fo:block>
+                                            </xsl:when>
+                                            <!-- Special handling for BeneficiaryAccountName -->
+                                            <xsl:when test="name() = 'BeneficiaryAccountName'">
+                                                <fo:block>
+                                                    Beneficiary Account Name: <xsl:value-of select="."/>
+                                                </fo:block>
+                                            </xsl:when>
+                                            <!-- Special handling for BankName -->
+                                            <xsl:when test="name() = 'BankName'">
+                                           <fo:block>
+                                                Bank Name: <xsl:value-of select="."/>
+                                           </fo:block>
+                                            </xsl:when>
+                                            <!-- Special handling for NetoffAccountAmount -->
+                                            <xsl:when test="name() = 'NetoffAccountAmount'">
+                                            <fo:block>
+                                                Netoff Account Amount: <xsl:value-of select="."/>
+                                            </fo:block>
+                                            </xsl:when>
+                                            <!-- Default behavior for other fields -->
+                                            <xsl:otherwise>
+                                            <fo-block>
+                                                <xsl:value-of select="name()"/>: <xsl:value-of select="."/>
+                                            </fo-block>
+                                            </xsl:otherwise>
+                                            </xsl:choose>
                                             </xsl:for-each>
                                         </fo:block>
+                                    </fo:block>
                                     </fo:table-cell>
                                 </fo:table-row>
                             </xsl:for-each>
@@ -831,7 +1030,7 @@
 
 
                     <!-- Key Terms and Conditions -->
-                    <fo:block font-family="Times New Roman" font-size="8pt" font-weight="bold" margin-top="1cm" margin-bottom="0.5cm">
+                    <fo:block font-family="Times New Roman" font-size="8pt" font-weight="bold" margin-top="0.5cm" margin-bottom="0.2cm">
                         Key Terms and Conditions
                     </fo:block>
                     <fo:block font-family="Times New Roman" font-size="8pt">
@@ -843,7 +1042,7 @@
                     </fo:block>
 
                     <!-- Grievance Redressal -->
-                    <fo:block font-family="Times New Roman" font-size="8pt" font-weight="bold" margin-top="0.5cm" margin-bottom="0.3cm">
+                    <fo:block font-family="Times New Roman" font-size="8pt" font-weight="bold" margin-top="0.5cm" margin-bottom="0.2cm">
                         Grievance Redressal
                     </fo:block>
                     <fo:block font-size="8pt" font-family="Times New Roman">

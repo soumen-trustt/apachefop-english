@@ -12,9 +12,8 @@
         <Photo>/home/soumenmanna/Desktop/apachefop/src/src/main/resources/mypic.jpg</Photo>
     </CustomerPhoto>
     <CustomerDetails>
-        <CustomerName>John Doe</CustomerName>
-        <CustomerID>10001</CustomerID>
-        <LoanAccountNo>LA10001</LoanAccountNo>
+        <CustomerName>John Doe</CustomerName><CustomerID>10001</CustomerID>
+        <LoanAccount>LA10001</LoanAccount>
         <GroupName>Group A</GroupName>
         <Product>Personal Loan</Product>
         <HusbandName>Jane Doe</HusbandName>
