@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<Lang>
+    <hi>
+        <fontname>Devanagari</fontname>
 <LoanCardFactSheet>
+<!--    <Lang>-->
+<!--        <hi>&lt;!&ndash; for Hindi &ndash;&gt;-->
+<!--            <fontname>Devanagari</fontname>-->
+<!--            <text1>प्राप्तकर्ता!</text1>-->
+<!--        </hi>-->
+<!--    </Lang>-->
     <BranchDetails>
-        <BranchCode>12345</BranchCode><BranchName>Bellandur</BranchName>
+        <BranchCode>12345</BranchCode>
+        <BranchName>Bellandur</BranchName>
         <BranchAddress>123 Main Street, City, State, ZIP</BranchAddress>
         <RegisteredOffice>456 Corporate Ave, City, State, ZIP</RegisteredOffice>
         <GSTRegn>12ABCDE1234F1Z5</GSTRegn>
@@ -12,7 +22,8 @@
         <Photo>src/src/main/resources/mypic.jpg</Photo>
     </CustomerPhoto>
     <CustomerDetails>
-        <CustomerName>John Doe</CustomerName><CustomerID>10001</CustomerID>
+        <CustomerName>John Doe</CustomerName>
+        <CustomerID>10001</CustomerID>
         <LoanAccount>LA10001</LoanAccount>
         <GroupName>Group A</GroupName>
         <Product>Personal Loan</Product>
@@ -97,3 +108,5 @@
         <NodalOfficerContactNo>1234567890</NodalOfficerContactNo>
     </GrievanceRedressal>
 </LoanCardFactSheet>
+    </hi>
+</Lang>
