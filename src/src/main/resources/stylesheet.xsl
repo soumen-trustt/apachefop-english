@@ -16,7 +16,7 @@
                     <!--hdfc logo added-->
                     <fo:block-container absolute-position="absolute" top="-1cm" left="0cm">
                         <fo:block>
-                            <fo:external-graphic src="url('src/src/main/resources/HDFC-Bank-Logo.png')" content-width="100px" content-height="100px" scaling="uniform"/>
+                            <fo:external-graphic src="url('src/src/main/resources/hdfclogo.png')" content-width="100px" content-height="100px" scaling="uniform"/>
                         </fo:block>
                     </fo:block-container>
 
@@ -26,7 +26,7 @@
                         <fo:block text-align="center" border="1pt solid black" padding="5pt" height="100%" width="100%">
                             <fo:block>
                                 <xsl:with-param name="CustomerPhoto">Customer Photo</xsl:with-param>
-                                <fo:external-graphic src="url('src/src/main/resources/passport.jpeg')" content-width="70pt" content-height="90pt" scaling="uniform"/>
+                                <fo:external-graphic src="url('src/src/main/resources/passport.jpeg')" content-width="50pt" content-height="50pt" scaling="uniform"/>
                             </fo:block>
                         </fo:block>
                     </fo:block-container>
@@ -43,14 +43,14 @@
                     <fo:table width="70%" border="1pt solid black">
                         <fo:table-body>
                             <fo:table-row>
-                                <fo:table-cell padding="1pt">
+                                <fo:table-cell padding="1pt" number-columns-spanned="2">
                                     <fo:block font-family="Times New Roman" font-size="8pt">
-                                        Branch Code &amp; Name:
-                                    </fo:block>
-                                </fo:table-cell>
-                                <fo:table-cell padding="1pt">
-                                    <fo:block font-size="8pt" font-family="Times New Roman">
-                                        <xsl:value-of select="concat(LoanCardFactSheet/BranchDetails/BranchCode, ' ', LoanCardFactSheet/BranchDetails/BranchName)"/>
+                                        <fo:inline keep-together.within-line="always">
+                                            Branch Code &amp; Name:
+                                            <xsl:value-of select="LoanCardFactSheet/BranchDetails/BranchCode"/>
+                                            <xsl:text> </xsl:text>
+                                            <xsl:value-of select="LoanCardFactSheet/BranchDetails/BranchName"/>
+                                        </fo:inline>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
@@ -63,10 +63,15 @@
                                 </fo:table-cell>
                                 <fo:table-cell padding="1pt">
                                     <fo:block font-family="Times New Roman" font-size="8pt">
-                                        <xsl:value-of select="LoanCardFactSheet/BranchDetails/BranchAddress"/>
+                                        <fo:inline keep-together.within-line="always">
+                                            <xsl:text> </xsl:text>
+                                            <xsl:value-of select="LoanCardFactSheet/BranchDetails/BranchAddress"/>
+                                        </fo:inline>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
+
+
                             <fo:table-row>
                                 <fo:table-cell padding="1pt">
                                     <fo:block font-family="Times New Roman" font-size="8pt">
@@ -75,7 +80,10 @@
                                 </fo:table-cell>
                                 <fo:table-cell padding="1pt">
                                     <fo:block font-family="Times New Roman" font-size="8pt">
-                                        <xsl:value-of select="LoanCardFactSheet/BranchDetails/RegisteredOffice"/>
+                                        <fo:inline keep-together.within-line="always">
+                                            <xsl:text> </xsl:text>
+                                            <xsl:value-of select="LoanCardFactSheet/BranchDetails/RegisteredOffice"/>
+                                        </fo:inline>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
@@ -86,7 +94,7 @@
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell padding="1pt">
-                                    <fo:block font-family="Times New Roman" font-size="8pt" margin-top="1pt" margin-left="-5pt">
+                                    <fo:block font-family="Times New Roman" font-size="8pt" margin-left="-5pt">
                                         <xsl:value-of select="LoanCardFactSheet/BranchDetails/GSTRegn"/>
                                     </fo:block>
                                 </fo:table-cell>
@@ -96,7 +104,7 @@
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell padding="1pt">
-                                    <fo:block font-family="Times New Roman" font-size="8pt" margin-left="-20pt" margin-top="1pt">
+                                    <fo:block font-family="Times New Roman" font-size="8pt" margin-left="-20pt">
                                         <xsl:value-of select="LoanCardFactSheet/BranchDetails/CIN"/>
                                     </fo:block>
                                 </fo:table-cell>
@@ -106,13 +114,16 @@
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell padding="1pt">
-                                    <fo:block font-family="Times New Roman" font-size="8pt" margin-left="-8pt" margin-top="1pt">
+                                    <fo:block font-family="Times New Roman" font-size="8pt" margin-left="-8pt">
                                         <xsl:value-of select="LoanCardFactSheet/BranchDetails/PAN"/>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
                         </fo:table-body>
                     </fo:table>
+
+
+
 
 
                     <fo:block space-after="0.3cm"/>
@@ -825,7 +836,7 @@
                     </fo:block>
                     <fo:block font-family="Times New Roman" font-size="8pt">
                         <xsl:for-each select="LoanCardFactSheet/KeyTermsAndConditions/Condition">
-                            <fo:block>
+                            <fo:block font-size="8pt">
                                 <xsl:number value="position()" format="1. "/><xsl:value-of select="."/>
                             </fo:block>
                         </xsl:for-each>
@@ -869,10 +880,9 @@
     <xsl:template match="BranchDetails/*">
         <fo:table-row>
             <fo:table-cell border="1pt solid black" padding="4pt">
-                <fo:block font-size="8pt" font-family="Times New Roman"><xsl:value-of select="name()"/></fo:block>
-            </fo:table-cell>
-            <fo:table-cell border="1pt solid black" padding="4pt">
-                <fo:block font-size="8pt" font-family="Times New Roman"><xsl:value-of select="."/></fo:block>
+                <fo:block font-size="8pt" font-family="Times New Roman">
+                    <xsl:value-of select="name()"/>: <xsl:value-of select="."/>
+                </fo:block>
             </fo:table-cell>
         </fo:table-row>
     </xsl:template>
